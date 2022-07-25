@@ -4,27 +4,35 @@ function bank:new(titular, senha)
     self.titular = titular
     self.senha = senha
     self.saldo = 0
-    return self
+    return true
 
 end
 
 function bank:sacar(valor)
-    self.saldo = self.saldo + valor
-    return self.saldo
+    if valor <= self.saldo then
+        self.saldo = self.saldo - valor
+        return true
 
+    else
+        return false
+
+    end
 end
 
-function bank:transferir(conta, valor)
-    conta.saldo = conta.saldo + valor
-    self.saldo = self.saldo - valor
-    return self.saldo
+function bank:transferir(valor)
+    if valor <= self.saldo then
+        self.saldo = self.saldo - valor
+        return true
+    
+    else
+        return false
 
+    end
 end
 
 function bank:depositar(valor)
     self.saldo = self.saldo + valor
-    return self.saldo
-
+    return true
 end
 
 return bank
