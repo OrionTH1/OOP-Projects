@@ -1,6 +1,4 @@
 local db = false
--- local conta2 = require('bank')
---conta2:new()
 
 local function errorBank(error, code)
     if code == 1 then
@@ -15,7 +13,7 @@ local function errorBank(error, code)
         io.read()
         return Menu()
         
-    end    
+    end
 end
 
 local function registro()
